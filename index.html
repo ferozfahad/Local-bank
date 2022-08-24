@@ -32,7 +32,7 @@
         <div class="col-md-4">
           <div class="withdrow status">
             <h5>Withdrow</h5>
-            <h2>$00</h2>
+            <h2>$ <span id="currentwithdrow">00</span></h2>
           </div>
         </div>
         <div class="col-md-4">
@@ -89,7 +89,9 @@
     const withdrowButton = document.getElementById("addwithdrow");
     withdrowButton.addEventListener("click", function(){
        const withdrowNumber = getInputNumber("withdroeamount");
-        console.log(withdrowNumber);
+       updatespantext("currentwithdrow", withdrowNumber);
+       updatespantext("currentbalance", -1*withdrowNumber );
+       document.getElementById("withdroeamount").value= "";
     })
 
     function getInputNumber(id){
